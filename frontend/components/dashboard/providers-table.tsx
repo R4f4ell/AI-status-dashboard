@@ -1,6 +1,5 @@
 import type { ProviderStatusResponse } from "@/lib/types";
 import {
-  formatDateTime,
   formatResponseTime,
   sourceLabels,
   statusLabels,
@@ -29,7 +28,6 @@ export function ProvidersTable({ providers }: ProvidersTableProps) {
           <TableHead>Status</TableHead>
           <TableHead>Latência</TableHead>
           <TableHead>Fonte</TableHead>
-          <TableHead>Última verificação</TableHead>
           <TableHead>Mensagem</TableHead>
         </TableRow>
       </TableHeader>
@@ -46,7 +44,6 @@ export function ProvidersTable({ providers }: ProvidersTableProps) {
             </TableCell>
             <TableCell>{formatResponseTime(provider.response_time_ms)}</TableCell>
             <TableCell>{sourceLabels[provider.source]}</TableCell>
-            <TableCell>{formatDateTime(provider.checked_at)}</TableCell>
             <TableCell className="max-w-80 truncate">
               {translateProviderMessage(provider.message)}
             </TableCell>
