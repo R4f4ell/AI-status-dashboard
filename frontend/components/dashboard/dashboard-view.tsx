@@ -32,9 +32,9 @@ export function DashboardView() {
   if (summaryQuery.isError || providersQuery.isError) {
     return (
       <Alert variant="destructive">
-        <AlertTitle>Unable to load dashboard</AlertTitle>
+        <AlertTitle>Não foi possível carregar o dashboard</AlertTitle>
         <AlertDescription>
-          Check if the FastAPI server is running on port 8000.
+          Verifique se o servidor FastAPI está rodando na porta 8000.
         </AlertDescription>
       </Alert>
     );
@@ -43,9 +43,9 @@ export function DashboardView() {
   if (!summaryQuery.data || !providersQuery.data?.length) {
     return (
       <Alert>
-        <AlertTitle>No provider data</AlertTitle>
+        <AlertTitle>Nenhum dado de provedor</AlertTitle>
         <AlertDescription>
-          The API responded successfully, but no provider status was returned.
+          A API respondeu com sucesso, mas nenhum status foi retornado.
         </AlertDescription>
       </Alert>
     );
@@ -56,7 +56,7 @@ export function DashboardView() {
       <SummaryCards summary={summaryQuery.data} />
       <Card>
         <CardHeader>
-          <CardTitle>Providers</CardTitle>
+          <CardTitle>Provedores</CardTitle>
         </CardHeader>
         <CardContent>
           <ProvidersTable providers={providersQuery.data} />

@@ -4,6 +4,7 @@ import {
   formatResponseTime,
   sourceLabels,
   statusLabels,
+  translateProviderMessage,
 } from "@/lib/status";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -24,12 +25,12 @@ export function ProvidersTable({ providers }: ProvidersTableProps) {
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Provider</TableHead>
+          <TableHead>Provedor</TableHead>
           <TableHead>Status</TableHead>
-          <TableHead>Latency</TableHead>
-          <TableHead>Source</TableHead>
-          <TableHead>Last check</TableHead>
-          <TableHead>Message</TableHead>
+          <TableHead>Latência</TableHead>
+          <TableHead>Fonte</TableHead>
+          <TableHead>Última verificação</TableHead>
+          <TableHead>Mensagem</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -47,7 +48,7 @@ export function ProvidersTable({ providers }: ProvidersTableProps) {
             <TableCell>{sourceLabels[provider.source]}</TableCell>
             <TableCell>{formatDateTime(provider.checked_at)}</TableCell>
             <TableCell className="max-w-80 truncate">
-              {provider.message}
+              {translateProviderMessage(provider.message)}
             </TableCell>
           </TableRow>
         ))}

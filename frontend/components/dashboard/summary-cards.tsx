@@ -14,28 +14,28 @@ type SummaryCardsProps = {
 export function SummaryCards({ summary }: SummaryCardsProps) {
   const cards = [
     {
-      label: "Providers",
+      label: "Provedores",
       value: summary.total_providers,
-      detail: "Monitored services",
+      detail: "Serviços monitorados",
     },
     {
-      label: "Operational",
+      label: "Operacionais",
       value: summary.operational,
-      detail: "Healthy providers",
+      detail: "Provedores saudáveis",
     },
     {
-      label: "Issues",
+      label: "Incidentes",
       value:
         summary.degraded +
         summary.partial_outage +
         summary.major_outage +
         summary.unknown,
-      detail: "Degraded, outage or unknown",
+      detail: "Instáveis, indisponíveis ou desconhecidos",
     },
     {
-      label: "Avg latency",
+      label: "Latência média",
       value: formatResponseTime(summary.average_response_time_ms),
-      detail: `Checked ${formatDateTime(summary.checked_at)}`,
+      detail: `Verificado em ${formatDateTime(summary.checked_at)}`,
     },
   ];
 

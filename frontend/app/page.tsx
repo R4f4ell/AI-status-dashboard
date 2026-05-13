@@ -8,7 +8,8 @@ export default function Home() {
           AI Status Dashboard
         </h1>
         <p className="text-sm text-muted-foreground">
-          Monitoring AI services and public APIs from the FastAPI backend.
+          Monitoramento de serviços de IA e APIs públicas a partir do back-end
+          FastAPI.
         </p>
       </header>
       <DashboardView />
