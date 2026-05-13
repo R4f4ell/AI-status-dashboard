@@ -5,7 +5,7 @@ MVP full stack para monitoramento de status de servicos de IA e APIs publicas.
 ## Escopo da primeira versao
 
 - Back-end com FastAPI, Pydantic, HTTPX e Uvicorn.
-- Front-end futuro com Next.js, TypeScript, SCSS, Shadcn UI, Recharts, TanStack Query e Lucide React.
+- Front-end com Next.js, TypeScript, SCSS, Tailwind, Shadcn UI, Recharts, TanStack Query e Lucide React.
 - Sem autenticacao.
 - Sem banco de dados.
 - Sem Supabase como backend.
@@ -41,9 +41,23 @@ AI-status-dashboard/
     requirements.txt
   frontend/
     app/
+      globals.css
+      layout.tsx
+      page.tsx
     components/
+      dashboard/
+        dashboard-view.tsx
+        providers-table.tsx
+        summary-cards.tsx
+      ui/
     lib/
+      api.ts
+      query-client.tsx
+      status.ts
+      types.ts
+      utils.ts
     styles/
+      app.scss
     package.json
   TEMP_PLAN_AI_STATUS_DASHBOARD.md
   README.md
@@ -124,3 +138,56 @@ API:    https://status.cloud.google.com/incidents.json
 ## Observacoes de seguranca
 
 Arquivos locais sensiveis e gerados nao devem ser versionados. O `.gitignore` da raiz ignora `.env`, ambientes virtuais, caches Python, dependencias Node, builds e arquivos temporarios.
+
+## Front-end
+
+Scaffold inicial criado com Next.js App Router, TypeScript, Tailwind, SCSS e Shadcn UI, sem `src/`.
+
+O front-end consome apenas o FastAPI. A URL base local fica em `frontend/.env.local`:
+
+```txt
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
+
+Componentes Shadcn adicionados:
+
+```txt
+button
+card
+badge
+table
+skeleton
+alert
+separator
+```
+
+Como rodar:
+
+```bash
+cd frontend
+npm run dev
+```
+
+URL local:
+
+```txt
+http://localhost:3000
+```
+
+Camada de API criada:
+
+```txt
+frontend/lib/types.ts
+frontend/lib/api.ts
+frontend/lib/query-client.tsx
+```
+
+Componentes iniciais do dashboard:
+
+```txt
+frontend/components/dashboard/dashboard-view.tsx
+frontend/components/dashboard/summary-cards.tsx
+frontend/components/dashboard/providers-table.tsx
+```
+
+Observacao: `frontend/next-env.d.ts` deve ser mantido no repositorio. Ele e gerado pelo Next para suporte de tipos globais e nao deve ser editado manualmente.

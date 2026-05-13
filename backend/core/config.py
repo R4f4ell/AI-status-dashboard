@@ -5,6 +5,10 @@ from dataclasses import dataclass
 class Settings:
     app_name: str = "AI Status Dashboard API"
     frontend_origin: str = "http://localhost:3000"
+    frontend_origins: tuple[str, ...] = (
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    )
     api_timeout_seconds: float = 8
     cache_ttl_seconds: int = 60
     history_limit_per_provider: int = 50
