@@ -13,6 +13,7 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import { SummaryCards } from "./summary-cards";
 import { ProvidersTable } from "./providers-table";
+import { LatencyStatusChart } from "./latency-status-chart";
 
 export function DashboardView() {
   const summaryQuery = useQuery({
@@ -62,6 +63,7 @@ export function DashboardView() {
           <ProvidersTable providers={providersQuery.data} />
         </CardContent>
       </Card>
+      <LatencyStatusChart providers={providersQuery.data} />
     </div>
   );
 }
